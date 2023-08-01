@@ -443,5 +443,6 @@
                 "workbench.action.splitEditor"
             ]
         },
-    ]
+    ],
+    "editor.fontFamily": "Iosevka, 'Droid Sans Mono', 'monospace', monospace",
 }
