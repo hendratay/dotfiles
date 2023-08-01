@@ -1,0 +1,44 @@
+"" Settings -> Plugins -> Install IdeaVim
+"" Settings -> Plugins -> Install Gruvbox - Theme
+"" Settings -> Appearance & Behaviour -> Appearance -> Theme -> Set Gruvbox Dark Hard
+"" Settings -> Appearance & Behaviour -> Appearance -> Font -> Set Iosevka / 13
+"" Settings -> Editor -> Design Tools -> Default Editor Mode -> Set All to Code
+"" Settings -> Editor -> Font -> Set Iosevka / 13 / 1.2
+"" Main Menu -> View -> Appearance -> Hide All
+
+let mapleader = " "
+
+nmap <Esc><Esc> :action HideActiveWindow<CR>
+nmap <leader><leader> :action SearchEverywhere<CR>
+nmap <leader>/ :action FindInPath<CR>
+nmap <leader>. :action GotoFile<CR>
+
+nmap <leader>bn <C-w>w
+nmap <leader>bp <C-w>W
+nmap <leader>bk :action CloseEditor<CR>
+
+imap <leader>ca :action CodeCompletion<CR>
+nmap <leader>cc :action Run<CR>
+nmap <leader>cd :action GotoDeclaration<CR>
+nmap <leader>cD :action ShowUsages<CR>
+nmap <leader>cf :action ReformatCode<CR>
+nmap <leader>ck :action QuickJavaDoc<CR>
+nmap <leader>co :action OptimizeImports<CR>
+nmap <leader>cx :action GotoNextError<CR>
+
+nmap <leader>ff :action RecentFiles<CR>
+
+nmap <leader>op :action ActivateProjectToolWindow<CR>
+nmap <leader>ot :action ActivateTerminalToolWindow<CR>
+
+nmap <leader>tZ :action ToggleZenMode<CR>
+nmap <leader>tP :action TogglePresentationMode<CR>
+nmap <leader>tD :action ToggleDistractionFreeMode<CR>
+
+nmap <leader>wd :action CloseEditor<CR>
+nmap <leader>wh <C-w>h
+nmap <leader>wj <C-w>j
+nmap <leader>wk <C-w>k
+nmap <leader>wl <C-w>l
+nmap <leader>ws :action SplitHorizontally<CR>
+nmap <leader>wv :action SplitVertically<CR>
