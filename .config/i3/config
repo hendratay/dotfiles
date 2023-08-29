@@ -39,7 +39,7 @@ exec --no-startup-id picom &
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 # wallpaper
-exec --no-startup-id feh --bg-max ~/Downloads/bird.jpg
+exec --no-startup-id feh --bg-max ~/Downloads/void.png
 
 # multimedia keys 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -61,7 +61,6 @@ gaps inner 9
 # apps launcher
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+e exec --no-startup-id emacs
-bindsym $mod+c exec --no-startup-id code
 bindsym $mod+b exec --no-startup-id chromium
 bindsym $mod+d exec --no-startup-id dmenu_run -b
 
@@ -96,8 +95,8 @@ bindsym $mod+minus split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -107,7 +106,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -152,14 +151,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-assign [class="code"] $ws1
 assign [class="Emacs"] $ws1
 assign [class="Chromium"] $ws2
 
 for_window [class="Alacritty"] floating enable
-# temporary
-for_window [class="minecraft"] floating enable
-for_window [title="game-dev"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
