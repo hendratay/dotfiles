@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -20,9 +20,8 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-
-(setq doom-font (font-spec :family "Iosevka" :size 13 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "Iosevka" :size 13))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12 :weight 'bold)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12 :weight 'bold))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -40,7 +39,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Projects/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -74,3 +73,13 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; format without lsp formatter: https://docs.doomemacs.org/v21.12/modules/editor/format
+(setq +format-with-lsp nil)
+(setq-hook! 'csharp-mode-hook +format-with-lsp t)
+
+;; for html only project
+;; (setq-hook! 'web-mode-hook +format-with-lsp t)
+
+;; issues: https://github.com/doomemacs/doomemacs/issues/6878
+(advice-add #'+javascript-add-npm-path-h :override #'ignore)
