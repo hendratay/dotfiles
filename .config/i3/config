@@ -57,6 +57,8 @@ bindsym Control+Mod1+Delete exec --no-startup-id shutdown now
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+floating_minimum_size 400 x 300
+floating_maximum_size 800 x 600
 
 # border style and gaps
 title_align center
@@ -74,9 +76,9 @@ client.background       #000000
 
 # apps launcher
 bindsym $mod+Return exec --no-startup-id alacritty --class=floating
-bindsym $mod+b exec --no-startup-id chromium
 bindsym $mod+e exec --no-startup-id emacs
-bindsym $mod+t exec --no-startup-id thunar
+bindsym $mod+b exec --no-startup-id chromium
+bindsym $mod+t exec --no-startup-id thunar --class floating
 bindsym $mod+d exec --no-startup-id dmenu_run -b
 
 # kill focused window
