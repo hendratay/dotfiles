@@ -57,8 +57,9 @@ bindsym Control+Mod1+Delete exec --no-startup-id shutdown now
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_minimum_size 400 x 300
-floating_maximum_size 800 x 600
+# floating_minimum_size 75 x 50
+# floating_maximum_size -1 x -1
+# floating_maximum_size 800 x 600
 
 # border style and gaps
 title_align center
@@ -75,11 +76,17 @@ client.placeholder      #000000 #000000 #ffffff #000000   #000000
 client.background       #000000
 
 # apps launcher
-bindsym $mod+Return exec --no-startup-id alacritty --class=floating
+bindsym $mod+Return exec --no-startup-id alacritty --class floating
 bindsym $mod+e exec --no-startup-id emacs
-bindsym $mod+b exec --no-startup-id chromium
+bindsym $mod+b exec --no-startup-id chromium --profile-directory="_personal"
+bindsym $mod+c exec --no-startup-id chromium --profile-directory="crypto"
+bindsym $mod+w exec --no-startup-id chromium --profile-directory="work"
 bindsym $mod+t exec --no-startup-id thunar --class floating
 bindsym $mod+d exec --no-startup-id dmenu_run -b
+
+bindsym $mod+F8 exec --no-startup-id ~/.config/polybar/wifi.sh
+bindsym $mod+F9 exec --no-startup-id ~/.config/polybar/bluetooth.sh
+bindsym $mod+F10 exec --no-startup-id ~/.config/polybar/redshift.sh
 
 # kill focused window
 bindsym $mod+q kill
@@ -132,14 +139,14 @@ bindsym $mod+space focus mode_toggle
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: code"
 set $ws2 "2: web"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws3 "3: crypto"
+set $ws4 "4: work"
+set $ws5 "5: image"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: game"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -169,12 +176,21 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="Emacs"] $ws1
-assign [class="Chromium"] $ws2
+assign [class="Chromium" title="_personal"] $ws2
+assign [class="Chromium" title="crypto"] $ws3
+assign [class="Chromium" title="work"] $ws4
+assign [class="krita"] $ws5
+assign [class="steam"] $ws10
 
-for_window [class="Lxappearance"] floating enable border normal 0
+for_window [title="Chromium"] floating enable border normal 0 # profile
+for_window [title="Steam Settings"] floating enable # steam
+for_window [title="Friends List"] floating enable # steam
+for_window [class="Gnome-disks"] floating enable # partitioning
+for_window [class="Lxappearance"] floating enable border normal 0 # gtk-themes
+for_window [class="Blueman-manager"] floating enable border normal 0 # bluetooth
 
-for_window [class="floating"] floating enable
-for_window [class="floating"] border normal 0
+for_window [class="floating"] floating enable border normal 0
+for_window [window_role="pop-up"] floating enable border normal 0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

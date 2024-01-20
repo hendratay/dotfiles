@@ -4,8 +4,8 @@ TOGGLE=$HOME/.config/polybar/.bluetooth
 
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
-    rfkill unblock 0
+    rfkill unblock bluetooth
 else
     rm $TOGGLE
-    rfkill block 0
+    rfkill block bluetooth
 fi
