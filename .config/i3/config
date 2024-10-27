@@ -77,11 +77,12 @@ client.background       #000000
 
 # apps launcher
 bindsym $mod+Return exec --no-startup-id alacritty --class floating
-bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+d exec --no-startup-id dmenu_run -b
 bindsym $mod+b exec --no-startup-id chromium --profile-directory="_personal"
 bindsym $mod+c exec --no-startup-id chromium --profile-directory="crypto"
+bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+a exec --no-startup-id android-studio
 bindsym $mod+t exec --no-startup-id thunar --class floating
-bindsym $mod+d exec --no-startup-id dmenu_run -b
 
 bindsym $mod+F8 exec --no-startup-id ~/.config/polybar/wifi.sh
 bindsym $mod+F9 exec --no-startup-id ~/.config/polybar/bluetooth.sh
@@ -139,8 +140,8 @@ bindsym $mod+space focus mode_toggle
 set $ws1 "1: web"
 set $ws2 "2: crypto"
 set $ws3 "3: code"
-set $ws4 "4: edit"
-set $ws5 "5"
+set $ws4 "4: dev"
+set $ws5 "5: design"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -176,11 +177,18 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="Chromium" title="_personal"] $ws1
 assign [class="Chromium" title="crypto"] $ws2
+assign [class="firefox"] $ws2
 assign [class="Emacs"] $ws3
-assign [class="krita"] $ws4
+assign [class="jetbrains-studio"] $ws4
+assign [class="krita"] $ws5
+assign [class="tiled"] $ws5
 assign [class="steam"] $ws10
 
 for_window [title="Chromium"] floating enable border normal 0 # profile
+for_window [class="rogueist"] floating enable border normal 0 # emacs game dev
+for_window [class="tacticist"] floating enable border normal 0 # emacs game dev
+for_window [class="autobattlist"] floating enable border normal 0 # emacs game dev
+for_window [title="Android Studio"] floating enable border normal 0 # android-studio
 for_window [title="Steam Settings"] floating enable # steam
 for_window [title="Friends List"] floating enable # steam
 for_window [class="Gnome-disks"] floating enable # partitioning

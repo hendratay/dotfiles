@@ -37,13 +37,12 @@ if [ "$1" == "--status" ]; then
     echo "$STATUS"
 else
     if [ "$STATUS" = "Stopped" ]; then
-        echo "no music"
+        echo ""
         exit -1
     elif [ "$STATUS" = "Paused"  ]; then
-        update_hooks "$PARENT_BAR_PID" 2
-        playerctl --player=$PLAYER metadata --format "$FORMAT"
+        exit -1
     elif [ "$STATUS" = "no player"  ]; then
-        echo "$STATUS"
+        echo ""
         exit -1
     else
         update_hooks "$PARENT_BAR_PID" 1
