@@ -20,8 +20,8 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 12 :weight 'bold)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12 :weight 'bold))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12 :weight 'medium))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -40,6 +40,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Projects/org/")
+(setq org-agenda-files '("~/Projects/org/areas/"
+                         "~/Projects/org/projects/"))
+(setq system-time-locale "C")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -73,6 +76,14 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; doom modeline
+(setq doom-modeline-icon nil)
+(setq doom-modeline-modal nil)
+(setq doom-modeline-always-show-macro-register t)
+(setq mode-line-misc-info nil)
+(setq lsp-modeline-code-actions-enable nil)
+(setq lsp-modeline-diagnostics-enable nil)
 
 ;; format without lsp formatter: https://docs.doomemacs.org/v21.12/modules/editor/format
 (setq +format-with-lsp nil)
