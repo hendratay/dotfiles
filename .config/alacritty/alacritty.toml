@@ -1,3 +1,4 @@
+[general]
 import = [
 "~/.config/alacritty/themes/tomorrow_night.toml",
 ]
