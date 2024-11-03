@@ -20,8 +20,8 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 12 :weight 'medium)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12 :weight 'medium))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 14 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 14 :weight 'medium))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -94,3 +94,6 @@
 
 ;; issues: https://github.com/doomemacs/doomemacs/issues/6878
 (advice-add #'+javascript-add-npm-path-h :override #'ignore)
+
+;; issues: https://github.com/emacs-lsp/lsp-mode/issues/4570
+(setq warning-minimum-level :error)
