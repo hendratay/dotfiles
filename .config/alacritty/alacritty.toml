@@ -1,6 +1,5 @@
-[general]
 import = [
-"~/.config/alacritty/themes/tomorrow_night.toml",
+"~/.config/alacritty/themes/gruvbox_dark.toml",
 ]
 
 
