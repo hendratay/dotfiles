@@ -95,3 +95,6 @@
 
 ;; issues: https://github.com/doomemacs/doomemacs/issues/6878
 (advice-add #'+javascript-add-npm-path-h :override #'ignore)
+
+;; issues: https://github.com/emacs-lsp/lsp-mode/issues/4570
+(setq warning-minimum-level :error)
