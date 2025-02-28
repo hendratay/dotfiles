@@ -65,7 +65,7 @@ floating_modifier $mod
 title_align center
 default_border none
 default_floating_border normal 0
-gaps inner 0
+gaps inner 6
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1d2021 #1d2021 #ebdbb2 #1d2021   #1d2021
@@ -78,7 +78,7 @@ client.background       #1d2021
 # apps launcher
 bindsym $mod+Return exec --no-startup-id alacritty --class floating
 bindsym $mod+t exec --no-startup-id thunar --class floating
-bindsym $mod+d exec --no-startup-id dmenu_run -b
+bindsym $mod+d exec --no-startup-id dmenu_run -b -nb '#1d2021' -nf '#ebdbb2' -sb '#fabd2f' -sf '#1d2021'
 bindsym $mod+b exec --no-startup-id chromium --profile-directory="_personal"
 bindsym $mod+e exec --no-startup-id emacs
 bindsym $mod+c exec --no-startup-id chromium --profile-directory="crypto"
