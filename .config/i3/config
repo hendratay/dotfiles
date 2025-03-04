@@ -41,19 +41,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 # wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/vagabond.png
 
-# multimedia keys 
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%
-bindsym XF86Display exec --no-startup-id ~/.config/polybar/monitor.sh
-bindsym XF86Tools exec --no-startup-id ~/.config/polybar/redshift.sh
-bindsym XF86Bluetooth exec --no-startup-id ~/.config/polybar/bluetooth.sh
-bindsym Print exec --no-startup-id flameshot gui
-bindsym Control+Mod1+Delete exec --no-startup-id shutdown now
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -83,9 +71,30 @@ bindsym $mod+b exec --no-startup-id chromium --profile-directory="_personal"
 bindsym $mod+e exec --no-startup-id emacs
 bindsym $mod+c exec --no-startup-id chromium --profile-directory="crypto"
 
-bindsym $mod+F8 exec --no-startup-id ~/.config/polybar/wifi.sh
-bindsym $mod+F9 exec --no-startup-id ~/.config/polybar/bluetooth.sh
-bindsym $mod+F10 exec --no-startup-id ~/.config/polybar/redshift.sh
+# multimedia keys
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86AudioPrev exec --no-startup-id playerctl --player=chromium previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl --player=chromium play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl --player=chromium next
+
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/polybar/brightness.sh - $(xrandr | grep -B1 '*' | awk '$2=="connected"{print $1}')
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/polybar/brightness.sh + $(xrandr | grep -B1 '*' | awk '$2=="connected"{print $1}')
+
+bindsym XF86Display exec --no-startup-id ~/.config/polybar/monitor.sh
+bindsym XF86Tools exec --no-startup-id ~/.config/polybar/redshift.sh
+bindsym XF86Bluetooth exec --no-startup-id ~/.config/polybar/bluetooth.sh
+
+bindsym F3 exec --no-startup-id ~/.config/polybar/monitor.sh
+bindsym F4 exec --no-startup-id ~/.config/polybar/wifi.sh
+bindsym F5 exec --no-startup-id ~/.config/polybar/redshift.sh
+bindsym F6 exec --no-startup-id ~/.config/polybar/bluetooth.sh
+
+bindsym Print exec --no-startup-id flameshot gui
+bindsym Control+Mod1+Delete exec --no-startup-id shutdown now
 
 # kill focused window
 bindsym $mod+q kill

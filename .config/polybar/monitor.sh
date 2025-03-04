@@ -2,10 +2,18 @@
 
 TOGGLE=$HOME/.config/polybar/.monitor
 
+SCREENS=( $(xrandr | awk '$2=="connected"{print $1}') )
+INTERNAL=${SCREENS[0]}
+EXTERNAL=${SCREENS[1]}
+
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
-    xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1
+    xrandr --output $INTERNAL --off
+    xrandr --output $EXTERNAL --auto --dpi 96
+    i3-msg restart
 else
     rm $TOGGLE
-    xrandr --output HDMI-1 --off
+    xrandr --output $EXTERNAL --off
+    xrandr --output $INTERNAL --auto --dpi 96
+    i3-msg restart
 fi
