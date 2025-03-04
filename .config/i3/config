@@ -84,13 +84,14 @@ bindsym XF86AudioNext exec --no-startup-id playerctl --player=chromium next
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/polybar/brightness.sh - $(xrandr | grep -B1 '*' | awk '$2=="connected"{print $1}')
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/polybar/brightness.sh + $(xrandr | grep -B1 '*' | awk '$2=="connected"{print $1}')
 
-bindsym XF86Display exec --no-startup-id ~/.config/polybar/monitor.sh
 bindsym XF86Tools exec --no-startup-id ~/.config/polybar/redshift.sh
+bindsym XF86Display exec --no-startup-id ~/.config/polybar/monitor.sh
+bindsym XF86WLAN exec --no-startup-id ~/.config/polybar/wifi.sh
 bindsym XF86Bluetooth exec --no-startup-id ~/.config/polybar/bluetooth.sh
 
-bindsym F3 exec --no-startup-id ~/.config/polybar/monitor.sh
-bindsym F4 exec --no-startup-id ~/.config/polybar/wifi.sh
-bindsym F5 exec --no-startup-id ~/.config/polybar/redshift.sh
+bindsym F3 exec --no-startup-id ~/.config/polybar/redshift.sh
+bindsym F4 exec --no-startup-id ~/.config/polybar/monitor.sh
+bindsym F5 exec --no-startup-id ~/.config/polybar/wifi.sh
 bindsym F6 exec --no-startup-id ~/.config/polybar/bluetooth.sh
 
 bindsym Print exec --no-startup-id flameshot gui
