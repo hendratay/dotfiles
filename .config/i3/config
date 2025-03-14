@@ -41,6 +41,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 # wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/vagabond.png
 
+# sleep
+exec --no-startup-id xautolock -killtime 10 -killer "systemctl sleep" -detectsleep
+
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -90,7 +93,7 @@ bindsym XF86WLAN exec --no-startup-id ~/.config/polybar/wifi.sh
 bindsym XF86Bluetooth exec --no-startup-id ~/.config/polybar/bluetooth.sh
 
 bindsym F3 exec --no-startup-id ~/.config/polybar/redshift.sh
-bindsym F4 exec --no-startup-id ~/.config/polybar/monitor.sh
+bindsym F4 workspace number $ws0
 bindsym F5 exec --no-startup-id ~/.config/polybar/wifi.sh
 bindsym F6 exec --no-startup-id ~/.config/polybar/bluetooth.sh
 
@@ -146,6 +149,7 @@ bindsym $mod+space focus mode_toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+set $ws0 "0: 改善"
 set $ws1 "1: web"
 set $ws2 "2: code"
 set $ws3 "3: dev"
