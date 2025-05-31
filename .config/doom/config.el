@@ -41,10 +41,15 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Projects/org/")
-(setq org-agenda-files '("~/Projects/org/areas/"
+(setq org-agenda-files '("~/Projects/org/"
+                         "~/Projects/org/areas/"
                          "~/Projects/org/projects/"))
 (setq system-time-locale "C")
 
+;; org-habit
+(add-to-list 'org-modules 'org-habit)
+(after! org-agenda
+  (setq org-habit-show-all-today t))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

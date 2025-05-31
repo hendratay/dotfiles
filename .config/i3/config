@@ -39,11 +39,11 @@ exec --no-startup-id picom &
 exec --no-startup-id ~/.config/polybar/pomo.sh notify &
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
+# sleep
+exec --no-startup-id xautolock -killtime 10 -killer "systemctl sleep" -corners "----" -detectsleep &
+
 # wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/vagabond.png
-
-# sleep
-exec --no-startup-id xautolock -killtime 10 -killer "systemctl sleep" -corners '----' -detectsleep 
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -196,9 +196,6 @@ assign [class="tiled"] $ws4
 assign [class="steam"] $ws5
 
 for_window [title="Chromium"] floating enable border normal 0 # profile
-for_window [class="rogueist"] floating enable border normal 0 # emacs game dev
-for_window [class="tacticist"] floating enable border normal 0 # emacs game dev
-for_window [class="autobattlist"] floating enable border normal 0 # emacs game dev
 for_window [title="Android Studio"] floating enable border normal 0 # android-studio
 for_window [title="Steam Settings"] floating enable # steam
 for_window [title="Friends List"] floating enable # steam
@@ -208,6 +205,11 @@ for_window [class="Blueman-manager"] floating enable border normal 0 # bluetooth
 
 for_window [class="floating"] floating enable border normal 0
 for_window [window_role="pop-up"] floating enable border normal 0
+
+# temporary
+for_window [class="rogueist"] floating enable border normal 0 # emacs game dev
+for_window [class="tacticist"] floating enable border normal 0 # emacs game dev
+for_window [class="autobattlist"] floating enable border normal 0 # emacs game dev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
