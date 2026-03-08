@@ -41,15 +41,24 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Projects/org/")
-(setq org-agenda-files '("~/Projects/org/"
-                         "~/Projects/org/areas/"
-                         "~/Projects/org/projects/"))
-(setq system-time-locale "C")
+(setq org-agenda-files '("~/Projects/org/areas/agenda.org"))
+(setq org-agenda-span 9)
+(setq org-deadline-warning-days 1)
+
+;; org tags align
+(after! org
+  (setq org-tags-column 80)
+  (add-hook! 'org-mode-hook
+    (add-hook 'before-save-hook #'org-align-tags nil t)))
 
 ;; org-habit
 (add-to-list 'org-modules 'org-habit)
 (after! org-agenda
-  (setq org-habit-show-all-today t))
+  (setq org-habit-show-all-today t
+        org-habit-completed-glyph ?✕))
+
+;; dates in english
+(setq system-time-locale "C")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -83,7 +92,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; doom modeline
+;; modeline
 (setq doom-modeline-icon nil)
 (setq doom-modeline-modal nil)
 (setq doom-modeline-always-show-macro-register t)

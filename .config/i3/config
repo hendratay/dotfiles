@@ -210,6 +210,8 @@ for_window [window_role="pop-up"] floating enable border normal 0
 for_window [class="rogueist"] floating enable border normal 0 # emacs game dev
 for_window [class="tacticist"] floating enable border normal 0 # emacs game dev
 for_window [class="autobattlist"] floating enable border normal 0 # emacs game dev
+for_window [class="zombiest"] floating enable border normal 0 # emacs game dev
+for_window [class="strategist"] floating enable border normal 0 # emacs game dev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
