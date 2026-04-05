@@ -43,7 +43,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id xautolock -killtime 10 -killer "systemctl sleep" -corners "----" -detectsleep &
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/vagabond.png
+exec --no-startup-id feh --bg-fill ~/Pictures/fog.png
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -57,7 +57,8 @@ floating_modifier $mod
 title_align center
 default_border none
 default_floating_border normal 0
-gaps inner 6
+gaps inner 12
+gaps top -9
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1d2021 #1d2021 #ebdbb2 #1d2021   #1d2021
