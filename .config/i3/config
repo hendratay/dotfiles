@@ -57,8 +57,7 @@ floating_modifier $mod
 title_align center
 default_border none
 default_floating_border normal 0
-gaps inner 12
-gaps top -9
+gaps inner 6
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1d2021 #1d2021 #ebdbb2 #1d2021   #1d2021
